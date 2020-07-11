@@ -1282,7 +1282,7 @@ BOOL _sessionInterrupted = NO;
             return;
         }
 
-
+ #if !TARGET_OS_MACCATALYST
         AVCaptureStillImageOutput *stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
         if ([self.session canAddOutput:stillImageOutput]) {
             stillImageOutput.outputSettings = @{AVVideoCodecKey : AVVideoCodecJPEG};
@@ -1291,6 +1291,7 @@ BOOL _sessionInterrupted = NO;
             self.stillImageOutput = stillImageOutput;
         }
 
+#endif
         // If AVCaptureVideoDataOutput is not required because of Google Vision
         // (see comment in -record), we go ahead and add the AVCaptureMovieFileOutput
         // to avoid an exposure rack on some devices that can cause the first few
