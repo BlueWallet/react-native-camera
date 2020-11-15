@@ -603,7 +603,7 @@ BOOL _sessionInterrupted = NO;
             if (self.whiteBalance != RNCameraWhiteBalanceAuto) {
                 RCTLogWarn(@"%s: locked whitebalance mode ist note supported. Fallback to continuous auto white balance mode", __func__);
             }
-            [device setWhiteBalanceMode:AVCaptureWhiteBalanceModeContinuousAutoWhiteBalance];
+//             [device setWhiteBalanceMode:AVCaptureWhiteBalanceModeContinuousAutoWhiteBalance];
         } else {
             AVCaptureWhiteBalanceTemperatureAndTintValues temperatureAndTint = {
                 .temperature = [RNCameraUtils temperatureForWhiteBalance:self.whiteBalance],
@@ -626,7 +626,7 @@ BOOL _sessionInterrupted = NO;
     [self lockDevice:device andApplySettings:^{
         if (![device isWhiteBalanceModeSupported:AVCaptureWhiteBalanceModeLocked]) {
             RCTLogWarn(@"%s: locked whitebalance mode ist note supported. Fallback to continuous auto white balance mode", __func__);
-            [device setWhiteBalanceMode:AVCaptureWhiteBalanceModeContinuousAutoWhiteBalance];
+//             [device setWhiteBalanceMode:AVCaptureWhiteBalanceModeContinuousAutoWhiteBalance];
         } else {
             AVCaptureWhiteBalanceTemperatureAndTintValues temperatureAndTint = {
                 .temperature = self.customWhiteBalanceSettings.temperature,
